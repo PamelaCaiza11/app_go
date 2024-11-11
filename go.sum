@@ -1,0 +1,5 @@
+# Este archivo go.sum es generado automáticamente por Go y normalmente
+# no necesita ser editado manualmente.
+
+github.com/golang/go v0.0.0-20230509211453-032d4c5a7c3b h1:hwVd2pCh0VZax2pKygONfYfaeVtI+omwUEqnk53qXeE=
+github.com/golang/go v0.0.0-20230509211453-032d4c5a7c3b/go.mod h1:U2kszJZeq3VvRl0u9pXPTtXnCA2yowknz6QOkw5GbJE=
