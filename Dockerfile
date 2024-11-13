@@ -1,29 +1,29 @@
-# Etapa de construcción
+# Build stage
 FROM golang:1.23-alpine AS build_stage
 
-# Establece el directorio de trabajo
+# Set the working directory
 WORKDIR /app
 
-# Copia los archivos go.mod y go.sum
+# Copy go.mod and go.sum files
 COPY go.mod go.sum ./
 
-# Descarga las dependencias
+# Download dependencies
 RUN go mod tidy
 
-# Copia el código fuente
+# Copy the source code
 COPY . .
 
-# Compila la aplicación
+# Compile the application
 RUN go build -o appgo ./appgo.go
 
-# Etapa de ejecución
+# Runtime stage
 FROM alpine:latest AS runtime_stage
 
-# Copia el binario desde la etapa de construcción
+# Copy the binary from the build stage
 COPY --from=build_stage /app/appgo /appgo
 
-# Expón el puerto 8080
+# Expose port 8080
 EXPOSE 8080
 
-# Ejecuta el binario
+# Run the binary
 CMD ["/appgo"]
